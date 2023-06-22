@@ -9,8 +9,8 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/test", (req, res) => {
-  logger.info("Someone hit my API. Wow.")
-  res.send("It's working!")
+  logger.info("Someone hit my API. Wow.");
+  res.send("It's working!");
 });
 
 app.get("/candy", getAllCandy);
