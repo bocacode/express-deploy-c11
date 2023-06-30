@@ -15,6 +15,10 @@ export async function getAllCandy(req, res) {
 export async function addNewCandy(req, res) {
   try {
     const newCandy = req.body;
+    if(!newCandy.name || !newCandy.price || !newCandy.size) {
+      res.status(401).send({ success: false, message: 'Required fields missing' })
+      return
+    }
     await coll.add(newCandy);
     getAllCandy(req, res);
   } catch(err) {
